@@ -4,10 +4,14 @@ woocommerce wepay plugin, woocommerce微信支付插件
 
 ## 运行环境(2018.12.16更新)
 
-> 成功安装WooCommerce的WordPress系统(php版本
+> 成功安装WooCommerce的WordPress系统
+
 > WordPress:WordPress 4.9.9
+
 > WooCommerce:3.5.0
+
 > 微信支付SDK:php_sdk_v3.0.9
+
 
 ## 演示使用
 
