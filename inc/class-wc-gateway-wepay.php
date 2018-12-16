@@ -21,6 +21,7 @@ class WC_Gateway_Wepay extends WC_Payment_Gateway {
         $this->app_id           = $this->get_option('app_id');
         $this->mch_id           = $this->get_option('mch_id');
         $this->api_key          = $this->get_option('api_key');
+        $this->notify_url       = $this->get_option('notify_url');
 
         // 保存后台设置的数据
         add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
@@ -90,6 +91,13 @@ class WC_Gateway_Wepay extends WC_Payment_Gateway {
                     'desc_tip'    => true,
                     'description' => '你创建的微信支付API密钥，在微信商户平台账户中心->API安全设置',
                     'default'     => '',
+            ),
+            'notify_url'  => array(
+                    'title'       => '微信异步通知回调链接(不要修改)',
+                    'type'        => 'text',
+                    'desc_tip'    => true,
+                    'description' => '你创建的微信支付API密钥，在微信商户平台账户中心->API安全设置',
+                    'default'     => $_SERVER['HTTP_HOST'].'/wc-api/WC_Gateway_Wepay/',
             )
         );
     }

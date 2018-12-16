@@ -71,22 +71,14 @@ class WC_Gateway_Wepay_Request
         
         $input->SetBody($product_body);
         $input->SetAttach('编号为#'.$order->get_id().'的订单');
-        //$this->out_trade_no = "sdkphp123456789".date("YmdHis");
-        
-        //$this->out_trade_no = "uzheshop1234567".date("YmdHis");
         $this->out_trade_no = $order->get_id();
         $this->return_url = $order->get_checkout_order_received_url();
-
-        //$input->SetOut_trade_no($this->out_trade_no);
         $input->SetOut_trade_no($order->get_id());
         // 最小单位是分
-        //$input->SetTotal_fee($order->get_total() * 100);
-        $input->SetTotal_fee("1");
+        $input->SetTotal_fee($order->get_total() * 100);
+        //$input->SetTotal_fee("1");
         $input->SetTime_start(date("YmdHis"));
         //$input->SetTime_expire(date("YmdHis", time() + 1200));
-        
-
-        
         $input->SetGoods_tag('编号为#'.$order->get_id().'的订单');
         //$input->SetNotify_url("http://paysdk.weixin.qq.com/notify.php");
         $input->SetNotify_url($this->notify_url);

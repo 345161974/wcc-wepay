@@ -5,7 +5,7 @@
         <div id="myDiv" style="color:#ff0000;"></div>
         <div id="timer">0</div>
         
-        //<?php
+        <?php
 //            echo "qrcode-show page.<br />";
 //            echo "qrcode-show page qrcode_url is:".$_GET['url'].'<br />';
 //            echo "qrcode-show page out_trade_no is:".$_GET['out_trade_no'].'<br />';
@@ -58,7 +58,6 @@
             }    
         }    
         //orderquery.php 文件返回订单状态，通过订单状态确定支付状态
-        //xmlhttp.open("POST","http://www.uzhe.shop/wp-content/plugins/wcc-wepay/inc/orderquery.php",false);
         xmlhttp.open("POST","<?php echo get_option( 'wepay_order_query_url' );  ?>",false);
         //下面这句话必须有    
         //把标签/值对添加到要发送的头文件。    

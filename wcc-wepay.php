@@ -44,13 +44,13 @@ function create_wepay_qrcode_page() {
                     'post_type'             => 'page'
             );
 
-            // 此处要记录$post_id的值,此值为: www.uzhe.shop/?page_id=$post_id 未来显示二维码页面
+            // 此处要记录$post_id的值,此值为: www.xxx.com/?page_id=$post_id 未来显示二维码页面
             $page_id = wp_insert_post( $wepay_page );
 
             if ( !$page_id ) {
                 wp_die( 'Error creating template page' );
             } else {
-                    // 此处要记录www.uzhe.shop/?page_id=$post_id该链接
+                    // 此处要记录www.xxx.com/?page_id=$post_id该链接
                     update_post_meta( $page_id, '_wp_page_template', 'template_wepay_qrcode_page.php' );
                     $wepay_qrcode_url = get_site_url(null, '/?page_id='.$page_id);
                     update_option( 'wepay_qrcode_url', $wepay_qrcode_url );
@@ -89,13 +89,13 @@ function create_wepay_order_query_page() {
                     'post_type'             => 'page'
             );
 
-            // 此处要记录$post_id的值,此值为: www.uzhe.shop/?page_id=$post_id 未来显示二维码页面
+            // 此处要记录$post_id的值,此值为: www.xxx.com/?page_id=$post_id 未来显示二维码页面
             $page_id = wp_insert_post( $wepay_page );
 
             if ( !$page_id ) {
                 wp_die( 'Error creating template page' );
             } else {
-                    // 此处要记录www.uzhe.shop/?page_id=$post_id该链接
+                    // 此处要记录www.xxx.com/?page_id=$post_id该链接
                     update_post_meta( $page_id, '_wp_page_template', 'template_wepay_order_query_page.php' );
                     $wepay_order_query_url = get_site_url(null, '/?page_id='.$page_id);
                     update_option( 'wepay_order_query_url', $wepay_order_query_url );
