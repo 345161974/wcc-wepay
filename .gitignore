@@ -1,0 +1,10 @@
+remote_push.bat
+local_commit.bat
+remote_push.sh
+./nbproject/*
+./cert/apiclient_cert.p12
+./cert/apiclient_cert.pem
+./cert/apiclient_cert
+./cert/cert.zip
+./logs/*
+debug.txt
