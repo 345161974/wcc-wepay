@@ -9,6 +9,18 @@ woocommerce wepay plugin, woocommerce微信支付插件
 
 ***本项目代码仅供参考学习!***
 
+### 插件已支持功能介绍(2018.12.18更新)
+
+> 支持最基本的PC扫码支付
+
+> 支付完成自动跳转(微信demo演示并未提供该参数:return_url,需自己实现该功能...支付宝是自带了自动跳转return_url的参数)
+
+### 插件未完善功能说明(2018.12.18更新)
+
+> 插件的一些清理工作(关闭/启用/删除插件)暂时还未开发完成(待开发)
+
+> 浏览器兼容性测试未测试，目前支持Chrome,Firefox
+
 
 ## 运行环境(2018.12.16更新)
 
@@ -31,7 +43,7 @@ woocommerce wepay plugin, woocommerce微信支付插件
 
 ![wordpress_link_setting](https://user-images.githubusercontent.com/3973297/50052429-e5795b00-015e-11e9-9202-388338e57cf7.png)
 
-* 安全证书至于cert目录下即可，插件会去该路径找安全证书
+* 安全证书放置于cert目录下即可，插件会去该路径找安全证书
 
 ![cert_path](https://user-images.githubusercontent.com/3973297/50052434-ead6a580-015e-11e9-9b26-e816ad6852f0.png)
 
