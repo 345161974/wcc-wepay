@@ -6,5 +6,4 @@ cert/apiclient_cert.p12
 cert/apiclient_cert.pem
 cert/apiclient_cert
 cert/cert.zip
-logs/*
 debug.txt
