@@ -20,6 +20,7 @@ class WC_Gateway_Wepay_Response
      * 验证请求中的签名，确保请求是来自于微信
      */
     public function check_response() {
+        
         date_default_timezone_set('PRC'); //设置中国时区 
         //echo "hello";
         //echo WCC_ALIPAY_PLUGIN_PATH;

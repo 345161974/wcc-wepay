@@ -41,6 +41,8 @@ class WC_Gateway_Wepay_Request
      */
     public function get_return_url($order) {
         
+        date_default_timezone_set('PRC'); //设置中国时区 
+        
         // 刷卡支付实现类
         $notify = new NativePay();
         

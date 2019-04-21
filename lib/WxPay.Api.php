@@ -421,15 +421,20 @@ class WxPayApi
  	 */
 	public static function notify($config, $callback, &$msg)
 	{
+                /*
 		if (!isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
+                    file_put_contents(WCC_WEPAY_PLUGIN_PATH.'WC_Gateway_Wepay_Response.txt', 'FALSE,未收到数据'.date("Y-m-d H:i:s",time()).PHP_EOL, FILE_APPEND);
 			# 如果没有数据，直接返回失败
 			return false;
 		}
+                 */
 
 		//如果返回成功则验证签名
 		try {
 			//获取通知的数据
-			$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+			//$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+                        $xml = file_get_contents('php://input');
+                        file_put_contents(WCC_WEPAY_PLUGIN_PATH.'WC_Gateway_Wepay_Response.txt', $xml.date("Y-m-d H:i:s",time()).PHP_EOL, FILE_APPEND);
 			$result = WxPayNotifyResults::Init($config, $xml);
 		} catch (WxPayException $e){
 			$msg = $e->errorMessage();

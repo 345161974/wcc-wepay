@@ -69,10 +69,12 @@ class PayNotifyCallBack extends WxPayNotify
 			//TODO失败,不是支付成功的通知
 			//如果有需要可以做失败时候的一些清理处理，并且做一些监控
 			$msg = "异常异常";
+                        file_put_contents(WCC_WEPAY_PLUGIN_PATH.'notify.txt', $msg.date("Y-m-d H:i:s",time()).PHP_EOL, FILE_APPEND);
 			return false;
 		}
 		if(!array_key_exists("transaction_id", $data)){
 			$msg = "输入参数不正确";
+                        file_put_contents(WCC_WEPAY_PLUGIN_PATH.'notify.txt', $msg.date("Y-m-d H:i:s",time()).PHP_EOL, FILE_APPEND);
 			return false;
 		}
 
@@ -82,6 +84,7 @@ class PayNotifyCallBack extends WxPayNotify
 			if($checkResult == false){
 				//签名错误
 				Log::ERROR("签名错误...");
+                                file_put_contents(WCC_WEPAY_PLUGIN_PATH.'notify.txt', '签名错误'.date("Y-m-d H:i:s",time()).PHP_EOL, FILE_APPEND);
 				return false;
 			}
 		} catch(Exception $e) {
