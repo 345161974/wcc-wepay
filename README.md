@@ -11,22 +11,19 @@ woocommerce wepay plugin, woocommerce微信支付插件
 
 ### 插件已支持功能介绍(2019.04.21更新)
 
-> 增加插件的清理工作:uninstall.php
+* 支持最基本的PC扫码支付
 
-> 浏览器兼容性测试，支持Chrome,Firefox,IE 11
+* 支付完成自动跳转(微信demo演示并未提供该参数:return_url,需自己实现该功能...支付宝是自带了自动跳转return_url的参数)
+
+* 增加插件的清理工作:uninstall.php
+
+* 浏览器兼容性测试，支持Chrome,Firefox,IE 11
 
 ### 插件已支持功能介绍(2018.12.18更新)
 
-> 支持最基本的PC扫码支付
+* 支持最基本的PC扫码支付
 
-> 支付完成自动跳转(微信demo演示并未提供该参数:return_url,需自己实现该功能...支付宝是自带了自动跳转return_url的参数)
-
-### 插件未完善功能说明(2018.12.18更新)
-
-> 插件的一些清理工作(关闭/启用/删除插件)暂时还未开发完成(待开发)
-
-> 浏览器兼容性测试未测试，目前支持Chrome,Firefox
-
+* 支付完成自动跳转(微信demo演示并未提供该参数:return_url,需自己实现该功能...支付宝是自带了自动跳转return_url的参数)
 
 ## 运行环境(2018.12.16更新)
 
@@ -37,7 +34,6 @@ woocommerce wepay plugin, woocommerce微信支付插件
 > WooCommerce:3.5.0
 
 > 微信支付SDK:php_sdk_v3.0.9
-
 
 ## 演示使用
 
