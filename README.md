@@ -13,7 +13,7 @@ woocommerce wepay plugin, woocommerce微信支付插件
 
 > 增加插件的清理工作:uninstall.php
 
-> 浏览器兼容性测试测试，支持Chrome,Firefox,IE 11
+> 浏览器兼容性测试，支持Chrome,Firefox,IE 11
 
 ### 插件已支持功能介绍(2018.12.18更新)
 
