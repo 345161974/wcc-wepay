@@ -9,6 +9,12 @@ woocommerce wepay plugin, woocommerce微信支付插件
 
 ***本项目代码仅供参考学习!***
 
+### 插件已支持功能介绍(2019.04.21更新)
+
+> 增加插件的清理工作:uninstall.php
+
+> 浏览器兼容性测试测试，支持Chrome,Firefox,IE 11
+
 ### 插件已支持功能介绍(2018.12.18更新)
 
 > 支持最基本的PC扫码支付
