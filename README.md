@@ -9,9 +9,52 @@ woocommerce wepay plugin, woocommerce微信支付插件
 
 ***本项目代码仅供参考学习!***
 
+## 使用前请先注意
+
+* 如果PHP版本是5.x版本，请注意lib/WxPay.Api.php文件中public static function notify($config, $callback, &$msg)...方法
+
+> 因为PHP 7.x没有$GLOBALS['HTTP_RAW_POST_DATA']用法，7.x中用file_get_contents('php://input')替换5.x中$GLOBALS['HTTP_RAW_POST_DATA']，请知悉，代码如下：
+
+``` php
+
+        /**
+ 	 * 
+ 	 * 支付结果通用通知
+ 	 * @param function $callback
+ 	 * 直接回调函数使用方法: notify(you_function);
+ 	 * 回调类成员函数方法:notify(array($this, you_function));
+ 	 * $callback  原型为：function function_name($data){}
+ 	 */
+	public static function notify($config, $callback, &$msg)
+	{
+                // PHP 5.x可以开启该注释
+                /* 
+		if (!isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
+                    file_put_contents(WCC_WEPAY_PLUGIN_PATH.'WC_Gateway_Wepay_Response.txt', 'FALSE,未收到数据'.date("Y-m-d H:i:s",time()).PHP_EOL, FILE_APPEND);
+			# 如果没有数据，直接返回失败
+			return false;
+		}
+                */
+
+		//如果返回成功则验证签名
+		try {
+			//获取通知的数据
+			//$xml = $GLOBALS['HTTP_RAW_POST_DATA']; // PHP 5.x版本用这个
+                        $xml = file_get_contents('php://input'); // PHP 7.x版本用这个
+			$result = WxPayNotifyResults::Init($config, $xml);
+		} catch (WxPayException $e){
+			$msg = $e->errorMessage();
+			return false;
+		}
+		
+		return call_user_func($callback, $result);
+	}
+
+```
+
 ### 插件已支持功能介绍(2019.04.21更新)
 
-* 支持最基本的PC扫码支付
+* 支持最基本的PC扫码支付(基于PHP 7.x)
 
 * 支付完成自动跳转(微信demo演示并未提供该参数:return_url,需自己实现该功能...支付宝是自带了自动跳转return_url的参数)
 
@@ -26,6 +69,8 @@ woocommerce wepay plugin, woocommerce微信支付插件
 * 支付完成自动跳转(微信demo演示并未提供该参数:return_url,需自己实现该功能...支付宝是自带了自动跳转return_url的参数)
 
 ## 运行环境(2018.12.16更新)
+
+> PHP 7.x
 
 > 成功安装WooCommerce的WordPress系统
 
@@ -64,4 +109,5 @@ woocommerce wepay plugin, woocommerce微信支付插件
 ![configure_wepay_mch_end](https://user-images.githubusercontent.com/3973297/50052442-ff1aa280-015e-11e9-828d-83e3d2634156.png)
 
 ## 上述设置成功,即可使用微信支付了.
+
 
